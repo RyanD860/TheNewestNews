@@ -1,10 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 const SourceCard = props => {
-  const { name } = props.source;
+  const { name, id } = props.source;
   return (
     <View>
-      <Text>{name}</Text>
+      <Text onPress={() => props.navigate.navigate("Selected Source", { id })}>
+        {name}
+      </Text>
     </View>
   );
 };

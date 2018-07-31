@@ -22,7 +22,13 @@ class SourcesScreen extends React.Component {
   }
   renderSources() {
     return this.state.sources.map(item => {
-      return <SourceCard source={item} key={item.id} />;
+      return (
+        <SourceCard
+          source={item}
+          key={item.id}
+          navigate={this.props.navigation}
+        />
+      );
     });
   }
   render() {

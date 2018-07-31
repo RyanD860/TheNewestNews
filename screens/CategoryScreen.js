@@ -6,7 +6,18 @@ class CategoryScreen extends React.Component {
   }
   renderCategories(categories) {
     return categories.map(item => {
-      return <Text key={item}>{item}</Text>;
+      return (
+        <Text
+          onPress={() =>
+            this.props.navigation.navigate("Selected Category", {
+              category: item
+            })
+          }
+          key={item}
+        >
+          {item}
+        </Text>
+      );
     });
   }
   render() {
