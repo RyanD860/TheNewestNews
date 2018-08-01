@@ -21,7 +21,6 @@ class SelectedSource extends Component {
       )
       .then(resp => {
         this.setState({ articles: resp.data.articles });
-        console.log(this.state.articles);
       })
       .catch(err => {
         console.log(err);

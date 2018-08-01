@@ -12,13 +12,17 @@ class SearchScreen extends React.Component {
   }
 
   onSearch() {
-    if (this.state.userInput === "") {
+    if (!this.state.userInput) {
       Alert.alert("Please Enter Search", null, [
         {
           text: "Dismiss",
           onPress: () => console.log("Dismiss was pressed")
         }
       ]);
+    } else {
+      this.props.navigation.navigate("Search Ran", {
+        search: this.state.userInput
+      });
     }
   }
 
@@ -28,7 +32,9 @@ class SearchScreen extends React.Component {
         <TextInput
           placeholder={"Enter Search..."}
           value={this.state.userInput}
-          onChangeText={text => this.setState({ userInput: text })}
+          onChangeText={userInput => this.setState({ userInput })}
+          onSubmitEditing={this.onSearch}
+          returnKeyType="search"
         />
       </View>
     );
