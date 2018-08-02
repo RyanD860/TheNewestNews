@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import config from "../config";
-import ArticleCard from "../components/ArticleCard";
 import moment from "moment";
+import ArticleCard from "../components/ArticleCard";
+import SearchFilters from "../components/SearchFilters";
 
 class SearchRanScreen extends Component {
   constructor(props) {
@@ -56,8 +57,12 @@ class SearchRanScreen extends Component {
   }
 
   render() {
-    console.log(this.state.articles);
-    return <ScrollView>{this.renderArticles()}</ScrollView>;
+    return (
+      <View>
+        <SearchFilters from={this.state.to} />
+        <ScrollView>{this.renderArticles()}</ScrollView>
+      </View>
+    );
   }
 }
 
