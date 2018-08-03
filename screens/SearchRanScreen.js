@@ -13,28 +13,24 @@ class SearchRanScreen extends Component {
     this.state = {
       articles: [],
       sortBy: "relevancy",
-      from: "",
-      to: ""
+      from: null,
+      to: null
     };
+    this.handleSortBy = this.handleSortBy.bind(this);
   }
 
   componentDidMount() {
-    String.prototype.replaceAll = function(search, replacement) {
-      var target = this;
-      return target.replace(new RegExp(search, "g"), replacement);
-    };
-    let now = moment().format("YYYY MM DD");
-    let oneWeekBefore = moment()
-      .subtract(1, "d")
-      .format("YYYY MM DD");
-    this.setState({
-      from: oneWeekBefore.replaceAll(" ", "-"),
-      to: now.replaceAll(" ", "-")
-    });
+    let today = new Date();
+    let weekBefore = new Date(today.getTime());
+    weekBefore.setDate(today.getDate() - 7);
+    this.setState({ from: weekBefore.toISOString(), to: today.toISOString() });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.from !== this.state.from && prevState.to !== this.state.to) {
+    if (
+      (prevState.from !== this.state.from && prevState.to !== this.state.to) ||
+      prevState.sortBy !== this.state.sortBy
+    ) {
       axios
         .get(
           `https://newsapi.org/v2/everything?q=${
@@ -49,6 +45,9 @@ class SearchRanScreen extends Component {
         .catch(err => console.log(err));
     }
   }
+  handleSortBy(sortBy) {
+    this.setState({ sortBy });
+  }
 
   renderArticles() {
     return this.state.articles.map(item => {
@@ -59,7 +58,12 @@ class SearchRanScreen extends Component {
   render() {
     return (
       <View>
-        <SearchFilters from={this.state.to} />
+        <SearchFilters
+          from={this.state.from}
+          to={this.state.to}
+          sortBy={this.state.sortBy}
+          handleSortBy={this.handleSortBy}
+        />
         <ScrollView>{this.renderArticles()}</ScrollView>
       </View>
     );
