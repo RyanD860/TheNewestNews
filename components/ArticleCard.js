@@ -25,7 +25,7 @@ const ArticleCard = props => {
       <Text>{title}</Text>
       <Text>{author}</Text>
       <Text>{source.name}</Text>
-      <Button title={"Read"} onPress={onPress} />
+      <Button title={"Read"} onPress={onPress} color={"#9966ff"} />
     </View>
   );
 };

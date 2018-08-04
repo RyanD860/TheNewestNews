@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Alert } from "react-native";
+import { Text, TextInput, Alert, View } from "react-native";
 class SearchScreen extends React.Component {
   constructor() {
     super();

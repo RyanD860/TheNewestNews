@@ -23,6 +23,7 @@ class SearchFilters extends Component {
     return (
       <View>
         <Button
+          color={"#9966ff"}
           title="Filter"
           onPress={() => this.props.handleSortBy(this.state.sortBy)}
         />
