@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, Button, Text } from "react-native";
 import config from "../config";
 import moment from "moment";
 import ArticleCard from "../components/ArticleCard";
@@ -14,9 +14,11 @@ class SearchRanScreen extends Component {
       articles: [],
       sortBy: "relevancy",
       from: null,
-      to: null
+      to: null,
+      page: 1
     };
     this.handleSortBy = this.handleSortBy.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +31,8 @@ class SearchRanScreen extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevState.from !== this.state.from && prevState.to !== this.state.to) ||
-      prevState.sortBy !== this.state.sortBy
+      prevState.sortBy !== this.state.sortBy ||
+      prevState.page !== this.state.page
     ) {
       axios
         .get(
@@ -37,7 +40,7 @@ class SearchRanScreen extends Component {
             this.props.navigation.state.params.search
           }&sortBy=${this.state.sortBy}&from=${this.state.from}&to=${
             this.state.to
-          }&language=en&apiKey=${config.API_KEY}`
+          }&language=en&page=${this.state.page}&apiKey=${config.API_KEY}`
         )
         .then(resp => {
           this.setState({ articles: resp.data.articles });
@@ -55,16 +58,39 @@ class SearchRanScreen extends Component {
     });
   }
 
+  handlePageChange(direction) {
+    if (direction === "next") {
+      this.setState({ page: this.state.page + 1 });
+      this.scroll.scrollTo({ x: 0, y: 0, animated: true });
+    } else if (direction === "previous") {
+      this.setState({ page: this.state.page - 1 });
+      this.scroll.scrollTo({ x: 0, y: 0, animated: true });
+    }
+  }
+
   render() {
     return (
       <View>
-        <SearchFilters
+        {/* <SearchFilters
           from={this.state.from}
           to={this.state.to}
           sortBy={this.state.sortBy}
           handleSortBy={this.handleSortBy}
-        />
-        <ScrollView>{this.renderArticles()}</ScrollView>
+        /> */}
+        <ScrollView ref={c => (this.scroll = c)}>
+          {this.renderArticles()}
+          {this.state.page > 1 && (
+            <Button
+              title="Previous Page"
+              onPress={() => this.handlePageChange("previous")}
+            />
+          )}
+          <Text>{this.state.page}</Text>
+          <Button
+            title="Next Page"
+            onPress={() => this.handlePageChange("next")}
+          />
+        </ScrollView>
       </View>
     );
   }
