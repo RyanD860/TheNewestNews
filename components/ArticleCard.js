@@ -1,5 +1,6 @@
 import { View, Text, Image, Linking, Alert, Button } from "react-native";
 import React from "react";
+import article from "../css/article";
 const ArticleCard = props => {
   let { author, title, urlToImage, description, url, source } = props.article;
   if (!urlToImage) {
@@ -19,12 +20,18 @@ const ArticleCard = props => {
       }
     ]);
   };
+  const renderText = text => {
+    let trim = text.substring(0, 100);
+    trim.length === 50 ? (trim += "...") : trim;
+    return trim;
+  };
   return (
-    <View>
-      <Image source={{ uri: urlToImage }} style={{ width: 200, height: 200 }} />
-      <Text>{title}</Text>
-      <Text>{author}</Text>
-      <Text>{source.name}</Text>
+    <View style={article.container}>
+      <Image source={{ uri: urlToImage }} style={{ width: 120, height: 120 }} />
+      <View style={{ flex: 1, paddingLeft: 5 }}>
+        <Text style={{ fontSize: 16, padding: 3 }}>{renderText(title)}</Text>
+        <Text style={{ fontSize: 12, padding: 3 }}>{source.name}</Text>
+      </View>
       <Button title={"Read"} onPress={onPress} color={"#9966ff"} />
     </View>
   );
