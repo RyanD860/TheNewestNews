@@ -3,6 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 import config from "../config";
 import axios from "axios";
 import SourceCard from "../components/SourceCard";
+import source from "../css/sourcesStyle";
 class SourcesScreen extends React.Component {
   constructor() {
     super();
@@ -32,7 +33,11 @@ class SourcesScreen extends React.Component {
     });
   }
   render() {
-    return <ScrollView>{this.renderSources()}</ScrollView>;
+    return (
+      <ScrollView>
+        <View style={source.container}>{this.renderSources()}</View>
+      </ScrollView>
+    );
   }
 }
 
