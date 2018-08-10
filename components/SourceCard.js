@@ -6,7 +6,7 @@ const SourceCard = props => {
   return (
     <View style={sources.item}>
       <Text
-        style={{ fontSize: 14 }}
+        style={sources.text}
         onPress={() => props.navigate.navigate("Selected Source", { id })}
       >
         {name}

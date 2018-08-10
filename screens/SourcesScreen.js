@@ -34,9 +34,11 @@ class SourcesScreen extends React.Component {
   }
   render() {
     return (
-      <ScrollView>
-        <View style={source.container}>{this.renderSources()}</View>
-      </ScrollView>
+      <View style={source.container}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {this.renderSources()}
+        </ScrollView>
+      </View>
     );
   }
 }
