@@ -5,7 +5,15 @@ const article = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    padding: 5
+    padding: 8,
+    borderBottomColor: "#EEEBEA",
+    borderBottomWidth: 1,
+    borderStyle: "solid"
+  },
+  title: {
+    fontSize: 17,
+    padding: 3,
+    textDecorationLine: "underline"
   }
 });
 
