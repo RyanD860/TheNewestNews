@@ -29,11 +29,11 @@ const ArticleCard = props => {
   return (
     <View style={article.container}>
       <Image source={{ uri: urlToImage }} style={{ width: 120, height: 120 }} />
-      <View style={{ flex: 1, paddingLeft: 5 }}>
+      <View style={article.text}>
         <Text onPress={onPress} style={article.title}>
           {renderText(title)}
         </Text>
-        <Text style={{ fontSize: 12, padding: 3 }}>{source.name}</Text>
+        <Text style={article.source}>{source.name}</Text>
       </View>
     </View>
   );

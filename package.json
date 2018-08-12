@@ -31,5 +31,10 @@
     "react-native-elements": "^0.19.1",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.9.3"
+  },
+  "rnpm": {
+    "assets": [
+      "assets/fonts/Source_Sans_Pro"
+    ]
   }
 }

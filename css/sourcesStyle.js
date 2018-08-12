@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
-
+Expo.Font.loadAsync({
+  "Source Sans Pro": require("../assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
+});
 const source = StyleSheet.create({
   container: {
     paddingTop: 30,
@@ -19,7 +21,8 @@ const source = StyleSheet.create({
     paddingBottom: 10
   },
   text: {
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: "Source Sans Pro"
   }
 });
 
