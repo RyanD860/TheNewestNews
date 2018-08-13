@@ -1,6 +1,6 @@
 import { View, Text, Image, Linking, Alert, Button } from "react-native";
 import React from "react";
-import article from "../css/article";
+import article from "../css/articleStyle";
 
 const ArticleCard = props => {
   let { author, title, urlToImage, description, url, source } = props.article;

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
+import sources from "../css/sourcesStyle";
 class CategoryScreen extends React.Component {
   constructor() {
     super();
@@ -7,16 +8,19 @@ class CategoryScreen extends React.Component {
   renderCategories(categories) {
     return categories.map(item => {
       return (
-        <Text
-          onPress={() =>
-            this.props.navigation.navigate("Selected Category", {
-              category: item
-            })
-          }
-          key={item}
-        >
-          {item}
-        </Text>
+        <View style={sources.item}>
+          <Text
+            onPress={() =>
+              this.props.navigation.navigate("Selected Category", {
+                category: item
+              })
+            }
+            key={item}
+            style={sources.text}
+          >
+            {item}
+          </Text>
+        </View>
       );
     });
   }
@@ -31,7 +35,11 @@ class CategoryScreen extends React.Component {
       "technology"
     ];
 
-    return <ScrollView>{this.renderCategories(categories)}</ScrollView>;
+    return (
+      <View style={sources.container}>
+        <ScrollView>{this.renderCategories(categories)}</ScrollView>
+      </View>
+    );
   }
 }
 

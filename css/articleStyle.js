@@ -10,7 +10,8 @@ const article = StyleSheet.create({
     padding: 8,
     borderBottomColor: "#EEEBEA",
     borderBottomWidth: 1,
-    borderStyle: "solid"
+    borderStyle: "solid",
+    backgroundColor: "white"
   },
   title: {
     fontSize: 17,
