@@ -6,22 +6,23 @@ class CategoryScreen extends React.Component {
     super();
   }
   renderCategories(categories) {
-    return categories.map(item => {
+    let i = 0;
+    return categories.map((item, i) => {
       return (
-        <View style={sources.item}>
+        <View style={sources.item} key={i}>
           <Text
             onPress={() =>
               this.props.navigation.navigate("Selected Category", {
                 category: item
               })
             }
-            key={item}
             style={sources.text}
           >
             {item}
           </Text>
         </View>
       );
+      i++;
     });
   }
   render() {
