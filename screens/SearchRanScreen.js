@@ -5,7 +5,8 @@ import config from "../config";
 import moment from "moment";
 import ArticleCard from "../components/ArticleCard";
 import SearchFilters from "../components/SearchFilters";
-
+import search from "../css/searchStyle";
+import PageButtons from "../components/PageButtons";
 class SearchRanScreen extends Component {
   constructor(props) {
     super(props);
@@ -70,26 +71,24 @@ class SearchRanScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={search.backgroundColor}>
         {/* <SearchFilters
           from={this.state.from}
           to={this.state.to}
           sortBy={this.state.sortBy}
           handleSortBy={this.handleSortBy}
         /> */}
-        <ScrollView ref={c => (this.scroll = c)}>
+        <ScrollView
+          ref={c => (this.scroll = c)}
+          showsHorizontalScrollIndicator={false}
+        >
           {this.renderArticles()}
-          {this.state.page > 1 && (
-            <Button
-              title="Previous Page"
-              onPress={() => this.handlePageChange("previous")}
+          {this.state.articles.length > 0 && (
+            <PageButtons
+              page={this.state.page}
+              handlePageChange={this.handlePageChange}
             />
           )}
-          <Text>{this.state.page}</Text>
-          <Button
-            title="Next Page"
-            onPress={() => this.handlePageChange("next")}
-          />
         </ScrollView>
       </View>
     );

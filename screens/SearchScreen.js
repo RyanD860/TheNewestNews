@@ -50,7 +50,7 @@ class SearchScreen extends React.Component {
             />
           </View>
           {this.state.userInput !== "" && (
-            <Button title="Search" onPress={this.onSearch} />
+            <Button title="Search" onPress={this.onSearch} color={"#9966ff"} />
           )}
         </View>
       </TouchableWithoutFeedback>
