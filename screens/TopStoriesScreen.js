@@ -4,6 +4,7 @@ import axios from "axios";
 import config from "../config";
 import ArticleCard from "../components/ArticleCard";
 import screens from "../css/screenStyle";
+import Header from "../components/Header";
 class TopStoriesScreen extends React.Component {
   constructor() {
     super();
@@ -33,6 +34,7 @@ class TopStoriesScreen extends React.Component {
   render() {
     return (
       <View style={screens.container}>
+        <Header />
         <ScrollView showsVerticalScrollIndicator={false}>
           {this.renderArticles()}
         </ScrollView>

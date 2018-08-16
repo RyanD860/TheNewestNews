@@ -17,7 +17,8 @@ const source = StyleSheet.create({
     borderStyle: "solid",
     flex: 1,
     alignItems: "center",
-    marginBottom: 20,
+    justifyContent: "center",
+    marginBottom: 10,
     paddingBottom: 10
   },
   text: {

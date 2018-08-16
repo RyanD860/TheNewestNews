@@ -9,6 +9,7 @@ import {
   Button
 } from "react-native";
 import search from "../css/searchStyle";
+import Header from "../components/Header";
 class SearchScreen extends React.Component {
   constructor() {
     super();
@@ -50,7 +51,7 @@ class SearchScreen extends React.Component {
             />
           </View>
           {this.state.userInput !== "" && (
-            <Button title="Search" onPress={this.onSearch} color={"#9966ff"} />
+            <Button title="Search" onPress={this.onSearch} color={"#CA99EA"} />
           )}
         </View>
       </TouchableWithoutFeedback>

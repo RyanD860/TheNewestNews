@@ -6,7 +6,7 @@ const PageButtons = props => {
   return props.page > 1 ? (
     <View style={search.buttonContainer}>
       <Button
-        title="Previous Page"
+        title="Prev Page"
         onPress={() => props.handlePageChange("previous")}
         color={"#9966ff"}
       />

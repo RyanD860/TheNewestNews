@@ -47,7 +47,7 @@ export const Tabs = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: "#9966ff"
+      activeTintColor: "#CA99EA"
     }
   }
 );
