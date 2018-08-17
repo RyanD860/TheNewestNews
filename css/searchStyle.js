@@ -25,12 +25,23 @@ const search = StyleSheet.create({
   backgroundColor: {
     backgroundColor: "white"
   },
-  buttonContainer: {
+  buttonContainerThree: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingBottom: 50
+    paddingBottom: 30,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  buttonContainerTwo: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingBottom: 30,
+    paddingLeft: 100,
+    paddingRight: 100
   },
   pageNumber: {
     fontSize: 20,

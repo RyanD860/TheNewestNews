@@ -4,7 +4,7 @@ import search from "../css/searchStyle";
 
 const PageButtons = props => {
   return props.page > 1 ? (
-    <View style={search.buttonContainer}>
+    <View style={search.buttonContainerThree}>
       <Button
         title="Prev Page"
         onPress={() => props.handlePageChange("previous")}
@@ -18,7 +18,7 @@ const PageButtons = props => {
       />
     </View>
   ) : (
-    <View style={search.buttonContainer}>
+    <View style={search.buttonContainerTwo}>
       <Text style={search.pageNumber}> Page: {props.page}</Text>
       <Button
         title="Next Page"

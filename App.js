@@ -3,6 +3,7 @@ import { Tabs } from "./navigation/tabNavigation";
 
 class App extends Component {
   render() {
+    console.disableYellowBox = true;
     return <Tabs />;
   }
 }
