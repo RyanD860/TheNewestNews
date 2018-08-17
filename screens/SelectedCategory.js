@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import config from "../config";
 import ArticleCard from "../components/ArticleCard";
 
@@ -33,7 +33,13 @@ class SelectedCategory extends Component {
     });
   }
   render() {
-    return <ScrollView>{this.renderArticles()}</ScrollView>;
+    return (
+      <View style={{ flex: 1 }}>
+        <View>
+          <ScrollView>{this.renderArticles()}</ScrollView>
+        </View>
+      </View>
+    );
   }
 }
 

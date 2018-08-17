@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import axios from "axios";
 import config from "../config";
 import ArticleCard from "../components/ArticleCard";
@@ -32,7 +32,11 @@ class SelectedSource extends Component {
     });
   }
   render() {
-    return <ScrollView>{this.renderArticles()}</ScrollView>;
+    return (
+      <View style={{ flex: 1 }}>
+        <ScrollView>{this.renderArticles()}</ScrollView>
+      </View>
+    );
   }
 }
 

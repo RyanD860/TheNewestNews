@@ -38,23 +38,30 @@ class SearchScreen extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <View style={search.container}>
-          <View>
-            <TextInput
-              placeholder={"Enter Search..."}
-              value={this.state.userInput}
-              onChangeText={userInput => this.setState({ userInput })}
-              onSubmitEditing={this.onSearch}
-              returnKeyType="search"
-              style={search.textBox}
-            />
+      <View style={{ flex: 1 }}>
+        <Header />
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <View style={search.container}>
+            <View>
+              <TextInput
+                placeholder={"Enter Search..."}
+                value={this.state.userInput}
+                onChangeText={userInput => this.setState({ userInput })}
+                onSubmitEditing={this.onSearch}
+                returnKeyType="search"
+                style={search.textBox}
+              />
+            </View>
+            {this.state.userInput !== "" && (
+              <Button
+                title="Search"
+                onPress={this.onSearch}
+                color={"#CA99EA"}
+              />
+            )}
           </View>
-          {this.state.userInput !== "" && (
-            <Button title="Search" onPress={this.onSearch} color={"#CA99EA"} />
-          )}
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }

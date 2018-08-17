@@ -16,7 +16,7 @@ const category = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    height: (height * 12.5) / 100
+    height: (height * 12.25) / 100
   }
 });
 

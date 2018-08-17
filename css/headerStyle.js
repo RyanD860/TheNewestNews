@@ -1,17 +1,13 @@
 import { StyleSheet, Dimensions } from "react-native";
 let { width } = Dimensions.get("window");
-
+Expo.Font.loadAsync({
+  "Sedgwick Ave": require("../assets/fonts/Sedgwick_Ave/SedgwickAve-Regular.ttf")
+});
 const header = StyleSheet.create({
   container: {
-    paddingTop: 30,
-    backgroundColor: "#CA99EA",
+    paddingTop: 15,
+    backgroundColor: "#B8B3BB",
     position: "relative"
-  },
-  text: {
-    margin: "auto",
-    bottom: 0,
-    position: "relative",
-    textAlign: "center"
   }
 });
 

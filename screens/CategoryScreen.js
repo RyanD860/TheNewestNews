@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import category from "../css/categoryStyle";
-import sources from "../css/sourcesStyle";
 import Header from "../components/Header";
 class CategoryScreen extends React.Component {
   constructor() {
@@ -39,11 +38,21 @@ class CategoryScreen extends React.Component {
     ];
 
     return (
-      <View style={sources.container}>
+      <View style={{ flex: 1 }}>
         <Header />
-        <ScrollView scrollEnabled={false}>
-          {this.renderCategories(categories)}
-        </ScrollView>
+        <View
+          style={{
+            flex: 1,
+            flexGrow: 1,
+            paddingLeft: 20,
+            paddingRight: 20,
+            backgroundColor: "white"
+          }}
+        >
+          <ScrollView scrollEnabled={false}>
+            {this.renderCategories(categories)}
+          </ScrollView>
+        </View>
       </View>
     );
   }

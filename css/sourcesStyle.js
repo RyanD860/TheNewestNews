@@ -4,12 +4,12 @@ Expo.Font.loadAsync({
 });
 const source = StyleSheet.create({
   container: {
-    paddingTop: 30,
     flex: 1,
     flexGrow: 1,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    paddingTop: 3
   },
   item: {
     borderBottomColor: "#EEEBEA",

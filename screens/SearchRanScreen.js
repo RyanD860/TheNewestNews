@@ -71,25 +71,27 @@ class SearchRanScreen extends Component {
 
   render() {
     return (
-      <View style={search.backgroundColor}>
-        {/* <SearchFilters
+      <View style={{ flex: 1 }}>
+        <View style={search.backgroundColor}>
+          {/* <SearchFilters
           from={this.state.from}
           to={this.state.to}
           sortBy={this.state.sortBy}
           handleSortBy={this.handleSortBy}
         /> */}
-        <ScrollView
-          ref={c => (this.scroll = c)}
-          showsHorizontalScrollIndicator={false}
-        >
-          {this.renderArticles()}
-          {this.state.articles.length > 0 && (
-            <PageButtons
-              page={this.state.page}
-              handlePageChange={this.handlePageChange}
-            />
-          )}
-        </ScrollView>
+          <ScrollView
+            ref={c => (this.scroll = c)}
+            showsHorizontalScrollIndicator={false}
+          >
+            {this.renderArticles()}
+            {this.state.articles.length > 0 && (
+              <PageButtons
+                page={this.state.page}
+                handlePageChange={this.handlePageChange}
+              />
+            )}
+          </ScrollView>
+        </View>
       </View>
     );
   }

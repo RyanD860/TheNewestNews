@@ -8,13 +8,13 @@ const PageButtons = props => {
       <Button
         title="Prev Page"
         onPress={() => props.handlePageChange("previous")}
-        color={"#9966ff"}
+        color={"#CA99EA"}
       />
       <Text style={search.pageNumber}>Page: {props.page}</Text>
       <Button
         title="Next Page"
         onPress={() => props.handlePageChange("next")}
-        color={"#9966ff"}
+        color={"#CA99EA"}
       />
     </View>
   ) : (
@@ -23,7 +23,7 @@ const PageButtons = props => {
       <Button
         title="Next Page"
         onPress={() => props.handlePageChange("next")}
-        color={"#9966ff"}
+        color={"#CA99EA"}
       />
     </View>
   );
